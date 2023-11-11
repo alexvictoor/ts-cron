@@ -1,0 +1,17 @@
+{
+  "name": "ts-cron",
+  "version": "1.0.0",
+  "description": "TypeScript CRON validator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alexandre Victoor",
+  "license": "Apache-2.0",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "typescript": "^5.2.2",
+    "vitest": "^0.34.6"
+  }
+}
