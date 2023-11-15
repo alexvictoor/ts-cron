@@ -30,5 +30,3 @@ type AllowedHourValues =
   export type Hours<Value> = RemoveLeadingZeros<Value> extends AllowedHourValues
   ? Value
   : never;
-
-  type Toto = RemoveLeadingZeros<'0*'>
