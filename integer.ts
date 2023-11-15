@@ -3,4 +3,4 @@ export type IsInteger<Value> = Value extends `${Digit}`
   ? true
   : Value extends `${Digit}${infer Rest}`
   ? IsInteger<Rest>
-  : never;
+  : false;

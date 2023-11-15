@@ -1,7 +1,7 @@
 import { RemoveLeadingZeros } from "./leading-zeros";
 
-type AllowedMinuteValues = "*" | "0" | AllowedPositiveMinuteValues;
-type AllowedPositiveMinuteValues =
+type AllowedMinuteValues =
+  | "0"
   | "1"
   | "2"
   | "3"
@@ -62,6 +62,5 @@ type AllowedPositiveMinuteValues =
   | "58"
   | "59";
 
-  export type Minutes<Value> = RemoveLeadingZeros<Value> extends AllowedMinuteValues
-  ? Value
-  : never;
+export type Minutes<Value> =
+  RemoveLeadingZeros<Value> extends AllowedMinuteValues ? Value : never;
