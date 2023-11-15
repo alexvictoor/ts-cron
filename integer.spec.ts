@@ -10,6 +10,6 @@ describe("Integer", () => {
     expectTypeOf<IsInteger<"012">>().toEqualTypeOf<true>();
   });
   it("should be never for non number strings", () => {
-    expectTypeOf<IsInteger<"0 12">>().toBeNever();
+    expectTypeOf<IsInteger<"0 12">>().toEqualTypeOf<false>();
   });
 });
