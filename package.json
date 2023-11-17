@@ -1,7 +1,7 @@
 {
   "name": "ts-cron",
   "version": "1.0.0",
-  "description": "TypeScript CRON validator",
+  "description": "TypeScript type-level CRON expression validator",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

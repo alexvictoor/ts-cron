@@ -1,5 +1,5 @@
 import { describe, expectTypeOf, it } from "vitest";
-import { IsInteger } from "./integer";
+import { IsInteger, ToNumber } from "./integer";
 
 describe("Integer", () => {
   it("should be true for one digit numbers", () => {
@@ -12,4 +12,11 @@ describe("Integer", () => {
   it("should be never for non number strings", () => {
     expectTypeOf<IsInteger<"0 12">>().toEqualTypeOf<false>();
   });
+
+
+  it("should parse string to number", () => {
+    expectTypeOf<ToNumber<"12">>().toEqualTypeOf<12>();
+    expectTypeOf<ToNumber<"012">>().toEqualTypeOf<12>();
+  });
 });
+

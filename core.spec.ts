@@ -33,7 +33,7 @@ describe("cron", () => {
     expectTypeOf<CheckHoursPart<"0-23 ">>().not.toBeNever();
     expectTypeOf<CheckHoursPart<"23-22">>().toBeNever();
     expectTypeOf<CheckHoursPart<"*/2">>().not.toBeNever();
-    expectTypeOf<CheckHoursPart<"0-23/2">>().not.toBeNever();
+    expectTypeOf<CheckHoursPart<"0-023/2">>().not.toBeNever();
     expectTypeOf<CheckHoursPart<"0-23/002">>().not.toBeNever();
     expectTypeOf<CheckHoursPart<"0-23/0">>().toBeNever();
     expectTypeOf<CheckHoursPart<"10/*">>().toBeNever();

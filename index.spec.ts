@@ -11,6 +11,6 @@ describe("cron", () => {
     expectTypeOf<CRON<"5 0 * 8 *">>().not.toBeNever();
     expectTypeOf<CRON<"0 22 * * 1-5">>().not.toBeNever();
 
-    verifyCron("*/10 * * * 3");
+    verifyCron("*/10,1,02,01-2 * * 012 3-6");
   });
 });
