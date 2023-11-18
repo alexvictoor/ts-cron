@@ -38,9 +38,6 @@ type ParseTupple<Value extends string> = Value extends `${number}-${number}`
     : never
   : Value;
 
-type Tototo = ParseTupple<"00012-23">;
-type Tototo2 = ParseTupple<"1223">;
-
 type Range<
   Value extends string,
   UnitIndex extends number
