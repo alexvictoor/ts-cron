@@ -62,5 +62,5 @@ type AllowedMinuteValues =
   | "58"
   | "59";
 
-export type Minutes<Value> =
+export type Minutes<Value extends string> =
   RemoveLeadingZeros<Value> extends AllowedMinuteValues ? Value : never;

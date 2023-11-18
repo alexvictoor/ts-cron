@@ -9,5 +9,5 @@ type AllowedWeekDayValues =
   | "5"
   | "6";
 
-export type WeekDays<Value> =
+export type WeekDays<Value extends string> =
   RemoveLeadingZeros<Value> extends AllowedWeekDayValues ? Value : never;
