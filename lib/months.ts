@@ -14,5 +14,5 @@ type AllowedMonthValues =
   | "11"
   | "12";
 
-export type Months<Value> =
+export type Months<Value extends string> =
   RemoveLeadingZeros<Value> extends AllowedMonthValues ? Value : never;

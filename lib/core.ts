@@ -22,25 +22,14 @@ export type Split<
   ? [...Split<Trim<Left>, Separator>, ...Split<Trim<Right>, Separator>]
   : [Trim<Input>];
 
-type UnitArray<Value> = [
+type UnitArray<Value extends string> = [
   Minutes<Value>,
   Hours<Value>,
   Days<Value>,
   Months<Value>,
   WeekDays<Value>
 ];
-type UnitType<Value, UnitIndex extends number> = UnitArray<Value>[UnitIndex];
-type RangeX<
-  Value,
-  UnitIndex extends number
-> = Value extends `${infer Start extends number}-${infer End extends number}`
-  ? Greater<Start, End> extends true
-    ? never
-    : CheckArray<
-        Value,
-        [UnitType<`${Start}`, UnitIndex>, UnitType<`${End}`, UnitIndex>]
-      >
-  : UnitType<Value, UnitIndex>;
+type UnitType<Value extends string, UnitIndex extends number> = UnitArray<Value>[UnitIndex];
 
 type ValidTupple<Value> = Value extends [number, number] ? Value : never;
 type ParseTupple<Value extends string> = Value extends `${number}-${number}`
@@ -59,20 +48,6 @@ type Range<
   infer Start extends number,
   infer End extends number
 ]
-  ? Greater<Start, End> extends true
-    ? never
-    : CheckArray<
-        Value,
-        [UnitType<`${Start}`, UnitIndex>, UnitType<`${End}`, UnitIndex>]
-      >
-  : UnitType<Value, UnitIndex>;
-
-  type Rroro = Range<"1", 0>;
-
-type OldRange<
-  Value,
-  UnitIndex extends number
-> = Value extends `${infer Start extends number}-${infer End extends number}`
   ? Greater<Start, End> extends true
     ? never
     : CheckArray<

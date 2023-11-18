@@ -1,8 +1,6 @@
 import { RemoveLeadingZeros } from "./leading-zeros";
 
-// Array.from({ length: 24}).map((_, index) => `'${index}'`).join(' | ')
-type AllowedHourValues =
-  | "0"
+type AllowedDayValues =
   | "1"
   | "2"
   | "3"
@@ -25,8 +23,15 @@ type AllowedHourValues =
   | "20"
   | "21"
   | "22"
-  | "23";
+  | "23"
+  | "24"
+  | "25"
+  | "26"
+  | "27"
+  | "28"
+  | "29"
+  | "30"
+  | "31";
 
-  export type Hours<Value> = RemoveLeadingZeros<Value> extends AllowedHourValues
-  ? Value
-  : never;
+export type Days<Value extends string> =
+  RemoveLeadingZeros<Value> extends AllowedDayValues ? Value : never;
