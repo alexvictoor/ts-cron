@@ -2,9 +2,11 @@
   "name": "ts-cron",
   "version": "1.0.0",
   "description": "TypeScript type-level CRON expression validator",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "rm -Rf ./testDist && tsc lib/*.ts -d --outDir ./testDist",
+    "build": "rm -Rf ./dist && tsc -d --outDir ./dist -p tsconfig-prod.json"
   },
   "author": "Alexandre Victoor",
   "license": "Apache-2.0",
