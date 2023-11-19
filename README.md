@@ -1,7 +1,7 @@
 # ts-cron
 A TypeScript type level CRON expression validator!
 
-![VSCode screenshot!](./screenshot.png)
+![VSCode screenshot!](https://raw.githubusercontent.com/alexvictoor/ts-cron/main/screenshot.png)
 
 Expressions currently supported are standard cron expressions, such as the one generated and describe on [crontab.guru](https://crontab.guru) website. 
 This type level validator works quite well in conjunction with cron engines such as [node-cron](https://github.com/kelektiv/node-cron).
