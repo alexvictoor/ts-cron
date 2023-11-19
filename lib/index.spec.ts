@@ -1,5 +1,5 @@
 import { describe, expectTypeOf, it, expect } from "vitest";
-import { CRON, validCronExpression } from ".";
+import { CRON, validStandardCronExpression, validCronExpression } from ".";
 
 describe("cron", () => {
 
@@ -12,6 +12,9 @@ describe("cron", () => {
     expectTypeOf<CRON<"0 22 * * 1-5">>().not.toBeNever();
 
     validCronExpression("*/10,1,02,01-2 * * 012 3-6");
-    validCronExpression("* * * * *  ");
+    validStandardCronExpression("* * * * *  ");
+    validStandardCronExpression("* * * * 6");
+    validCronExpression("* * * * * 7");
+    validCronExpression("* * * * * *  ");
   });
 }); 

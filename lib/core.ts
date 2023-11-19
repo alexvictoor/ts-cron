@@ -5,7 +5,7 @@ import { Hours } from "./hours";
 import { ToNumber } from "./integer";
 import { Minutes } from "./minutes";
 import { Months } from "./months";
-import { WeekDays } from "./week-days";
+import { StandardWeekDays, WeekDays } from "./week-days";
 
 export type Space = " ";
 
@@ -27,6 +27,7 @@ type UnitArray<Value extends string> = [
   Hours<Value>,
   Days<Value>,
   Months<Value>,
+  StandardWeekDays<Value>,
   WeekDays<Value>
 ];
 type UnitType<Value extends string, UnitIndex extends number> = UnitArray<Value>[UnitIndex];
@@ -78,6 +79,10 @@ type CheckArray<
     : CheckArray<RawValues, Rest>
   : RawValues;
 
+export type CheckSecondsPart<Part extends string> = CheckArray<
+  Part,
+  CommaSeparated<0, Trim<Part>>
+>;
 export type CheckMinutesPart<Part extends string> = CheckArray<
   Part,
   CommaSeparated<0, Trim<Part>>
@@ -97,7 +102,13 @@ export type CheckMonthsPart<Part extends string> = CheckArray<
   Part,
   CommaSeparated<3, Trim<Part>>
 >;
-export type CheckWeekDaysPart<Part extends string> = CheckArray<
+
+export type CheckStandardWeekDaysPart<Part extends string> = CheckArray<
   Part,
   CommaSeparated<4, Trim<Part>>
+>;
+
+export type CheckWeekDaysPart<Part extends string> = CheckArray<
+  Part,
+  CommaSeparated<5, Trim<Part>>
 >;
