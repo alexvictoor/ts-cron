@@ -8,7 +8,7 @@ import {
   Split,
 } from "./core";
 
-export type CRON<Value> = Split<Value, Space> extends [
+export type CRON<Value extends string> = Split<Value, Space> extends [
   infer Minute extends string,
   infer Hour extends string,
   infer DayOfMonth extends string,
@@ -18,4 +18,4 @@ export type CRON<Value> = Split<Value, Space> extends [
   ? `${CheckMinutesPart<Minute>}${Space}${CheckHoursPart<Hour>}${Space}${CheckDaysPart<DayOfMonth>}${Space}${CheckMonthsPart<Month>}${Space}${CheckWeekDaysPart<DayOfWeek>}`
   : never;
 
-export const verifyCron = <T extends string>(cron: T & CRON<T>): T => cron;
+export const validCronExpression = <T extends string>(cron: CRON<T> extends never ? never : T): T => cron;
