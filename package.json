@@ -1,6 +1,6 @@
 {
   "name": "ts-cron-validator",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "TypeScript type-level CRON expression validator",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
