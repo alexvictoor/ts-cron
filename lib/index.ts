@@ -2,6 +2,7 @@ import {
   CheckDaysPart,
   CheckHoursPart,
   CheckMinutesPart,
+  CheckMonthsPart,
   CheckStandardMonthsPart,
   CheckStandardWeekDaysPart,
   CheckWeekDaysPart,
@@ -28,7 +29,7 @@ export type CRON<Value extends string> = StandardCRON<Value> extends never
       infer Month extends string,
       infer DayOfWeek extends string
     ]
-    ? `${CheckMinutesPart<Seconde>}${Space}${CheckMinutesPart<Minute>}${Space}${CheckHoursPart<Hour>}${Space}${CheckDaysPart<DayOfMonth>}${Space}${CheckStandardMonthsPart<Month>}${Space}${CheckWeekDaysPart<DayOfWeek>}`
+    ? `${CheckMinutesPart<Seconde>}${Space}${CheckMinutesPart<Minute>}${Space}${CheckHoursPart<Hour>}${Space}${CheckDaysPart<DayOfMonth>}${Space}${CheckMonthsPart<Month>}${Space}${CheckWeekDaysPart<DayOfWeek>}`
     : never
   : StandardCRON<Value>;
 

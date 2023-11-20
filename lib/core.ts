@@ -4,7 +4,7 @@ import { RemoveEveryPart } from "./every";
 import { Hours } from "./hours";
 import { ToNumber } from "./integer";
 import { Minutes } from "./minutes";
-import { Months } from "./months";
+import { Months, StandardMonths } from "./months";
 import { StandardWeekDays, WeekDays } from "./week-days";
 
 export type Space = " ";
@@ -28,13 +28,15 @@ const MINUTES = 0;
 const HOURS = 1;  
 const DAYS = 2;  
 const STANDARD_MONTHS = 3;  
-const STANDARD_WEEKDAYS = 4;  
-const WEEKDAYS = 5;  
+const MONTHS = 4;  
+const STANDARD_WEEKDAYS = 5;  
+const WEEKDAYS = 6;  
 
 type UnitArray<Value extends string> = [
   Minutes<Value>,
   Hours<Value>,
   Days<Value>,
+  StandardMonths<Value>,
   Months<Value>,
   StandardWeekDays<Value>,
   WeekDays<Value>
@@ -110,6 +112,11 @@ export type CheckDaysPart<Part extends string> = CheckArray<
 export type CheckStandardMonthsPart<Part extends string> = CheckArray<
   Part,
   CommaSeparated<typeof STANDARD_MONTHS, Trim<Part>>
+>;
+
+export type CheckMonthsPart<Part extends string> = CheckArray<
+  Part,
+  CommaSeparated<typeof MONTHS, Trim<Part>>
 >;
 
 export type CheckStandardWeekDaysPart<Part extends string> = CheckArray<

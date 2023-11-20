@@ -1,6 +1,6 @@
 import { RemoveLeadingZeros } from "./leading-zeros";
 
-type AllowedMonthValues =
+type AllowedStandardMonthValues =
   | "1"
   | "2"
   | "3"
@@ -14,5 +14,26 @@ type AllowedMonthValues =
   | "11"
   | "12";
 
+  type AllowedMonthValues = AllowedStandardMonthValues
+  | "jan"
+  | "fev"
+  | "mar"
+  | "apr"
+  | "may"
+  | "jun"
+  | "jul"
+  | "aug"
+  | "sep"
+  | "oct"
+  | "nov"
+  | "dec";
+
+export type StandardMonths<Value extends string> =
+  RemoveLeadingZeros<Value> extends AllowedStandardMonthValues ? Value : never;
+
 export type Months<Value extends string> =
-  RemoveLeadingZeros<Value> extends AllowedMonthValues ? Value : never;
+  Lowercase<RemoveLeadingZeros<Value>> extends AllowedMonthValues ? Value : never;
+
+
+
+type Toto = Lowercase<'Jan'>
