@@ -1,5 +1,5 @@
 import { describe, expectTypeOf, it } from "vitest";
-import { CheckDaysPart, CheckHoursPart, CheckMinutesPart, CheckMonthsPart, CheckWeekDaysPart } from "./core";
+import { CheckDaysPart, CheckHoursPart, CheckMinutesPart, CheckStandardMonthsPart, CheckStandardWeekDaysPart, CheckWeekDaysPart } from "./core";
 
 
 describe("cron", () => {
@@ -53,15 +53,15 @@ describe("cron", () => {
   });
 
   it("should check months part", () => {
-    expectTypeOf<CheckMonthsPart<"*">>().not.toBeNever();
-    expectTypeOf<CheckMonthsPart<"0*">>().toBeNever();
-    expectTypeOf<CheckMonthsPart<"0">>().toBeNever();
-    expectTypeOf<CheckMonthsPart<"01">>().not.toBeNever();
-    expectTypeOf<CheckMonthsPart<"12">>().not.toBeNever();
-    expectTypeOf<CheckMonthsPart<"13">>().toBeNever();
-    expectTypeOf<CheckMonthsPart<"1,012">>().not.toBeNever();
-    expectTypeOf<CheckMonthsPart<"0,12">>().toBeNever();
-    expectTypeOf<CheckMonthsPart<"12,13">>().toBeNever();
+    expectTypeOf<CheckStandardMonthsPart<"*">>().not.toBeNever();
+    expectTypeOf<CheckStandardMonthsPart<"0*">>().toBeNever();
+    expectTypeOf<CheckStandardMonthsPart<"0">>().toBeNever();
+    expectTypeOf<CheckStandardMonthsPart<"01">>().not.toBeNever();
+    expectTypeOf<CheckStandardMonthsPart<"12">>().not.toBeNever();
+    expectTypeOf<CheckStandardMonthsPart<"13">>().toBeNever();
+    expectTypeOf<CheckStandardMonthsPart<"1,012">>().not.toBeNever();
+    expectTypeOf<CheckStandardMonthsPart<"0,12">>().toBeNever();
+    expectTypeOf<CheckStandardMonthsPart<"12,13">>().toBeNever();
   });
 
   it("should check week days part", () => {
@@ -70,9 +70,9 @@ describe("cron", () => {
     expectTypeOf<CheckWeekDaysPart<"0">>().not.toBeNever();
     expectTypeOf<CheckWeekDaysPart<"00">>().not.toBeNever();
     expectTypeOf<CheckWeekDaysPart<"6">>().not.toBeNever();
-    expectTypeOf<CheckWeekDaysPart<"7">>().toBeNever();
+    expectTypeOf<CheckStandardWeekDaysPart<"7">>().toBeNever();
     expectTypeOf<CheckWeekDaysPart<"0,06">>().not.toBeNever();
-    expectTypeOf<CheckWeekDaysPart<"0,7">>().toBeNever();
+    expectTypeOf<CheckStandardWeekDaysPart<"0,7">>().toBeNever();
   });
 
 });

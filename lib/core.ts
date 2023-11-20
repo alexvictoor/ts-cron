@@ -22,6 +22,15 @@ export type Split<
   ? [...Split<Trim<Left>, Separator>, ...Split<Trim<Right>, Separator>]
   : [Trim<Input>];
 
+
+const SECONDS = 0;  
+const MINUTES = 0;  
+const HOURS = 1;  
+const DAYS = 2;  
+const STANDARD_MONTHS = 3;  
+const STANDARD_WEEKDAYS = 4;  
+const WEEKDAYS = 5;  
+
 type UnitArray<Value extends string> = [
   Minutes<Value>,
   Hours<Value>,
@@ -81,34 +90,34 @@ type CheckArray<
 
 export type CheckSecondsPart<Part extends string> = CheckArray<
   Part,
-  CommaSeparated<0, Trim<Part>>
+  CommaSeparated<typeof SECONDS, Trim<Part>>
 >;
 export type CheckMinutesPart<Part extends string> = CheckArray<
   Part,
-  CommaSeparated<0, Trim<Part>>
+  CommaSeparated<typeof MINUTES, Trim<Part>>
 >;
 
 export type CheckHoursPart<Part extends string> = CheckArray<
   Part,
-  CommaSeparated<1, Trim<Part>>
+  CommaSeparated<typeof HOURS, Trim<Part>>
 >;
 
 export type CheckDaysPart<Part extends string> = CheckArray<
   Part,
-  CommaSeparated<2, Trim<Part>>
+  CommaSeparated<typeof DAYS, Trim<Part>>
 >;
 
-export type CheckMonthsPart<Part extends string> = CheckArray<
+export type CheckStandardMonthsPart<Part extends string> = CheckArray<
   Part,
-  CommaSeparated<3, Trim<Part>>
+  CommaSeparated<typeof STANDARD_MONTHS, Trim<Part>>
 >;
 
 export type CheckStandardWeekDaysPart<Part extends string> = CheckArray<
   Part,
-  CommaSeparated<4, Trim<Part>>
+  CommaSeparated<typeof STANDARD_WEEKDAYS, Trim<Part>>
 >;
 
 export type CheckWeekDaysPart<Part extends string> = CheckArray<
   Part,
-  CommaSeparated<5, Trim<Part>>
+  CommaSeparated<typeof WEEKDAYS, Trim<Part>>
 >;

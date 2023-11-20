@@ -1,4 +1,4 @@
-import { describe, expectTypeOf, it, expect } from "vitest";
+import { describe, expectTypeOf, it } from "vitest";
 import { CRON, validStandardCronExpression, validCronExpression } from ".";
 
 describe("cron", () => {
