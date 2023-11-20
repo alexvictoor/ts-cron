@@ -30,6 +30,14 @@ export type CRON<Value extends string> = StandardCRON<Value> extends never
       infer DayOfWeek extends string
     ]
     ? `${CheckMinutesPart<Seconde>}${Space}${CheckMinutesPart<Minute>}${Space}${CheckHoursPart<Hour>}${Space}${CheckDaysPart<DayOfMonth>}${Space}${CheckMonthsPart<Month>}${Space}${CheckWeekDaysPart<DayOfWeek>}`
+    : Split<Value, Space> extends [
+      infer Minute extends string,
+      infer Hour extends string,
+      infer DayOfMonth extends string,
+      infer Month extends string,
+      infer DayOfWeek extends string
+    ]
+    ? `${CheckMinutesPart<Minute>}${Space}${CheckHoursPart<Hour>}${Space}${CheckDaysPart<DayOfMonth>}${Space}${CheckMonthsPart<Month>}${Space}${CheckWeekDaysPart<DayOfWeek>}`
     : never
   : StandardCRON<Value>;
 

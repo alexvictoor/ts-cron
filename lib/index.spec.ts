@@ -16,6 +16,7 @@ describe("cron", () => {
     validStandardCronExpression("* * * * 6");
     validCronExpression("* * * * * 7");
     validCronExpression("* * * * * Sun");
+    validCronExpression("* * * * Sun");
     validCronExpression("* * * * * *  ");
     validCronExpression("* * * * FeV *  ");
   });
