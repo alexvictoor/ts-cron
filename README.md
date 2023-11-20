@@ -6,6 +6,8 @@ A TypeScript type level CRON expression validator!
 Expressions supported are the one generated and describe on [crontab.guru](https://crontab.guru) website. This means that you can use this library to check standard CRON expressions but also non standard one. 
 Also, this type level validator works quite well in conjunction with cron engines such as [node-cron](https://github.com/kelektiv/node-cron).
 
+For a live demo, you can try this [codesandbox](https://codesandbox.io/s/nervous-raman-72j6y8?file=/src/index.ts)
+
 ## Usage
 To install this tiny library: 
 ```
