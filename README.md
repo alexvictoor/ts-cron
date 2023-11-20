@@ -27,6 +27,6 @@ validStandardCronExpression('42 * * *   ');     // KO missing day of week part
 validStandardCronExpression('59 4 * * *');      // OK
 validStandardCronExpression('60 4 * * *');      // KO incorrect minutes part 
 
-validCronExpression('20 60 4 * dec mon');       // OK non standard CRON expression are accepted
+validCronExpression('20 59 4 * dec mon');       // OK non standard CRON expression are accepted
                                                 // by validCronExpression()
 ```
