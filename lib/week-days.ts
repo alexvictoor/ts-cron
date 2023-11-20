@@ -10,6 +10,6 @@ export type StandardWeekDays<Value extends string> =
     : never;
 
 export type WeekDays<Value extends string> =
-  RemoveLeadingZeros<Value> extends AllowedWeekDayValues
+  Lowercase<RemoveLeadingZeros<Value>> extends AllowedWeekDayValues
     ? Value
     : never;

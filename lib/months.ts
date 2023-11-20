@@ -33,7 +33,3 @@ export type StandardMonths<Value extends string> =
 
 export type Months<Value extends string> =
   Lowercase<RemoveLeadingZeros<Value>> extends AllowedMonthValues ? Value : never;
-
-
-
-type Toto = Lowercase<'Jan'>
