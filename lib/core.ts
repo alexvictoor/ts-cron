@@ -20,6 +20,8 @@ export type Split<
   Separator extends string
 > = Input extends `${infer Left}${Separator}${infer Right}`
   ? [...Split<Trim<Left>, Separator>, ...Split<Trim<Right>, Separator>]
+  : Trim<Input> extends '' 
+  ? [] 
   : [Trim<Input>];
 
 

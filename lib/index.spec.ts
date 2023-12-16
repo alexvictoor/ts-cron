@@ -12,12 +12,12 @@ describe("cron", () => {
     expectTypeOf<CRON<"0 22 * * 1-5">>().not.toBeNever();
 
     validCronExpression("*/10,1,02,01-2 * * 012 3-6");
-    validStandardCronExpression("* * * * *  ");
+    validStandardCronExpression("  * * * * *  ");
     validStandardCronExpression("* * * * 6");
     validCronExpression("* * * * * 7");
     validCronExpression("* * * * * Sun");
     validCronExpression("* * * * Sun");
     validCronExpression("* * * * * *  ");
-    validCronExpression("* * * * FeV *  ");
+    validCronExpression("* * * * FeB *  ");
   });
 }); 
