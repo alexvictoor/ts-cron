@@ -16,7 +16,7 @@ type AllowedStandardMonthValues =
 
   type AllowedMonthValues = AllowedStandardMonthValues
   | "jan"
-  | "fev"
+  | "feb"
   | "mar"
   | "apr"
   | "may"
